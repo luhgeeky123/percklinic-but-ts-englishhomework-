@@ -47,7 +47,7 @@ psql -U postgres -d clinic_db -f insert_data.sql
 # - Copy contents of create_tables.sql and execute
 # - Then execute insert_data.sql
 ```
-###📖 Usage
+### 📖 Usage
 Connect to Database
 
 -- Connect to database
@@ -58,7 +58,7 @@ Connect to Database
 
 -- Describe table structure
 \d Patient
-###Basic Queries
+### Basic Queries
 ```sql
 -- All patients
 SELECT * FROM Patient;
@@ -77,7 +77,7 @@ FROM Medication m
 JOIN Proizvoditel p ON m.proizvoditel_id = p.proizvoditel_id
 WHERE p.name = 'Pfizer';
 ```
-###🏗️ Database Structure
+### 🏗️ Database Structure
 ####Tables
 Specialization — medical specializations reference
 specialization_id (PK)
@@ -110,7 +110,7 @@ Prescription — prescriptions
 prescription_id (PK)
 visit_id (FK), medication_id (FK)
 dosage
-###📊 Analytical Queries
+### 📊 Analytical Queries
 1. Doctor with Most Visits Last Month
 ```sql
 SELECT 
@@ -163,7 +163,7 @@ JOIN Doctor d ON v.doctor_id = d.doctor_id
 GROUP BY p.patient_id, p.full_name
 ORDER BY p.full_name;
 ```
-Result(json):
+ Result(json):
 [
   {
     "patient_name": "Ivanov Ivan Ivanovich",
@@ -178,7 +178,7 @@ Result(json):
     ]
   }
 ]
-###💡 Data Samples
+### 💡 Data Samples
 ####Patients (5 records)
 Ivanov Ivan Ivanovich (born 1985)
 Petrova Anna Sergeevna (born 1992)
@@ -210,7 +210,7 @@ Diagnosis → Visit: One-to-One (1:1)
 Medication → Proizvoditel: Many-to-One (N:1)
 Prescription → Visit: Many-to-One (N:1)
 Prescription → Medication: Many-to-One (N:1)
-###🤝 Contributing
+### 🤝 Contributing
 Contributions are welcome!
 ####How to Contribute:
 Fork the repository
@@ -227,7 +227,7 @@ Add views (VIEW) for reporting
 Implement change audit system
 ####📄 License
 This project is distributed under the MIT License
-###📁 Project Structure
+### 📁 Project Structure
 clinic-database/
 ├── README.md
 ├── LICENSE
@@ -237,7 +237,7 @@ clinic-database/
 ├── images/
 │   └── clinic_er_diagram.png  # ER diagram
 └── clinic_er_diagram.drawio   # Diagram source (draw.io)
-###📞 Contact
+### 📞 Contact
 For questions and suggestions: [ndonttextme@noanswer.ru]
 Project Status: ✅ Completed
 Version: 1.0.0
