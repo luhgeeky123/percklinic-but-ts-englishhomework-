@@ -78,7 +78,7 @@ JOIN Proizvoditel p ON m.proizvoditel_id = p.proizvoditel_id
 WHERE p.name = 'Pfizer';
 ```
 ### 🏗️ Database Structure
-####Tables
+#### Tables
 Specialization — medical specializations reference
 specialization_id (PK)
 name — specialization name
