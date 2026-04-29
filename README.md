@@ -83,13 +83,13 @@ WHERE p.name = 'Pfizer';
 ```
 ### 🏗️ Database Structure
 #### Tables
-Specialization — medical specializations reference
+##### Specialization — medical specializations reference
 
 specialization_id (PK)
 
 name — specialization name
 
-Proizvoditel — medication manufacturers
+##### Proizvoditel — medication manufacturers
 
 proizvoditel_id (PK)
 
@@ -97,7 +97,7 @@ name — company name
 
 country — country of origin
 
-Patient — patients
+##### Patient — patients
 
 patient_id (PK)
 
@@ -105,7 +105,7 @@ full_name, date_of_birth, gender
 
 phone, email, address
 
-Doctor — doctors
+##### Doctor — doctors
 
 doctor_id (PK)
 
@@ -121,7 +121,7 @@ patient_id (FK), doctor_id (FK)
 
 visit_datetime, status
 
-Diagnosis — medical diagnoses
+##### Diagnosis — medical diagnoses
 
 diagnosis_id (PK)
 
@@ -129,7 +129,7 @@ visit_id (FK, UNIQUE)
 
 description, diagnosis_date
 
-Medication — medications
+##### Medication — medications
 
 medication_id (PK)
 
@@ -137,10 +137,10 @@ name, proizvoditel_id (FK)
 
 price, instructions
 
-Prescription — prescriptions
-
+##### Prescription — prescriptions
 
 prescription_id (PK)
+
 visit_id (FK), medication_id (FK)
 
 dosage
@@ -215,7 +215,6 @@ ORDER BY p.full_name;
  Result(json):
  
 [
-
   {
   
     "patient_name": "Ivanov Ivan Ivanovich",
@@ -231,8 +230,7 @@ ORDER BY p.full_name;
       {"diagnose": "Moderate myopia", "doctor": "Lebedeva Maria Andreevna"}
     ]
     
-  }
-  
+  }  
 ]
 ### 💡 Data Samples
 
@@ -348,7 +346,7 @@ clinic-database/
 
 ### 📞 Contact
 
-For questions and suggestions: [ndonttextme@noanswer.ru]
+For questions and suggestions: [donttextme@noanswer.ru]
 
 Project Status: ✅ Completed
 
