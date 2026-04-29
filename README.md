@@ -4,7 +4,7 @@
 
 Educational relational database for modeling a medical clinic operations. Normalized 3NF schema with 8 tables, real data samples, and analytical queries.
 
-##📑Table of Contents
+## 📑Table of Contents
 
 - [About](#about)
 - [Installation](#installation)
