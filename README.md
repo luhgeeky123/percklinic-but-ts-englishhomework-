@@ -46,6 +46,7 @@ psql -U postgres -d clinic_db -f insert_data.sql
 # - Open SQL Editor
 # - Copy contents of create_tables.sql and execute
 # - Then execute insert_data.sql
+```
 ###📖 Usage
 Connect to Database
 
@@ -57,7 +58,8 @@ Connect to Database
 
 -- Describe table structure
 \d Patient
-Basic Queries
+###Basic Queries
+```sql
 -- All patients
 SELECT * FROM Patient;
 
@@ -74,8 +76,9 @@ SELECT m.name, m.price, p.name as manufacturer
 FROM Medication m
 JOIN Proizvoditel p ON m.proizvoditel_id = p.proizvoditel_id
 WHERE p.name = 'Pfizer';
+```
 ###🏗️ Database Structure
-Tables
+####Tables
 Specialization — medical specializations reference
 specialization_id (PK)
 name — specialization name
@@ -109,6 +112,7 @@ visit_id (FK), medication_id (FK)
 dosage
 ###📊 Analytical Queries
 1. Doctor with Most Visits Last Month
+```sql
 SELECT 
     d.full_name AS doctor_name,
     COUNT(v.visit_id) AS visit_count
@@ -118,11 +122,13 @@ WHERE v.visit_datetime >= NOW() - INTERVAL '1 month'
 GROUP BY d.doctor_id, d.full_name
 ORDER BY visit_count DESC
 LIMIT 1;
+```
 Result(sql):
  doctor_name          | visit_count
 ----------------------+-------------
  Morozova O.N.        |     2
 2. Top 5 Most Prescribed Medications
+```sql
 SELECT 
     m.name AS medication_name,
     COUNT(p.prescription_id) AS prescription_count
@@ -131,6 +137,7 @@ JOIN Prescription p ON m.medication_id = p.medication_id
 GROUP BY m.medication_id, m.name
 ORDER BY prescription_count DESC
 LIMIT 5;
+```
 Result(sql):
  medication_name  | prescription_count
 ------------------+--------------------
@@ -140,6 +147,7 @@ Result(sql):
  Aspirin Cardio   |         2
  Visine           |         1
 3. Patients with Diagnoses and Doctors (JSON)
+```json
 SELECT
     p.full_name AS patient_name,
     json_agg(
@@ -154,6 +162,7 @@ JOIN Diagnosis diag ON v.visit_id = diag.visit_id
 JOIN Doctor d ON v.doctor_id = d.doctor_id
 GROUP BY p.patient_id, p.full_name
 ORDER BY p.full_name;
+```
 Result(json):
 [
   {
